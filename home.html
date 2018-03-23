@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=content-width, initial-scale=1.0">
+	<title>Home</title>
+	<!--Below are the required CDN's-->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h3><center>Welcome to the Home Page</center></h3>
+		<!--Defining panel in bootstrap-->
+		<div class="panel panel-default">
+
+			<div class="panel panel-default">
+				<div class="panel-heading">Employees List</div>
+				<div class="panel-body"></div>
+				<div id="link">
+					<a onclick="link()">Click for employees list</a>
+				</div>
+				
+			</div>
+
+			<div class="panel-heading">Employee Registration Form</div>
+			<div class="panel-body">
+		<!--Form element with some input fields-->
+		<form class="form-inline" id="frm2" onsubmit="submit(event)" action="" method="post">
+
+		<div class="col-auto"><br>
+			<label for="name">Name:</label>
+			<input class="form-control" type="text" name="Name" id= "name" onblur="name()" placeholder="Name">
+		</div>
+		<div id="namemess"></div><br>
+
+		<div class="col-auto">
+			<label for="mobile">Mobile:</label>
+			<input class="form-control" type="text" name="mobile" id="mobile" onblur="mobile()" placeholder="Mobile Number">
+		</div>
+		<div class="mobilemess"></div><br>
+
+		<div class="col-auto">
+			<label for="email">Email:</label>
+			<input class="form-control" type="email" name="email" id="email" onblur="email()" placeholder="Email address">
+		</div>
+		<div class="emailmess"></div><br>
+
+		<div class="col-auto">
+			<label for="city">City:</label>
+			<input class="form-control" type="text" name="city" id="city" onblur="city()" placeholder="City">
+		</div>
+		<div class="citymess"></div><br>
+
+		<div class="col-auto">
+			<label for="state">State:</label>
+			<input class="form-control" type="text" name="state" id="state" onblur="state()" placeholder="State">
+		</div>
+		<div class="statemess"></div><br>
+
+		<br/>
+		<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+		<br>
+
+</div>
+</div>
+<script type="text/javascript">
+
+	//Assigning input values to a variable
+	var name1=document.getelementbyID("name").value;
+	
+
+	var mobile1=document.getelementbyID("mobile").value;
+	
+
+	var email1=document.getelementbyID("email").value;
+	
+
+	var city1=document.getelementbyID("city").value;
+	
+
+	var state1=document.getelementbyID("state").value;
+	
+
+
+	//submit event validation
+
+	function submit(event){
+		alert("Test message")
+	}
+
+	//Onblur event validation
+	function name(){
+		if ( (name1.length<5) ||(name1.length>15) ||(name1.length="") ||(isNaN(name1.value) ==false) ) 
+		{
+			namemess.innerHTML="Invalid Name";
+			namemess.style.color="red";
+			namemess.style.bordercolor="red";
+			
+		}else{
+			namemess.innerHTML="";
+			namemess.style.bordercolor="red";
+		}
+
+	}
+
+	function mobile(){
+
+		if (mobile1!=12 || mobile1 = "") {
+			mobilemess.innerHTML="Invalid Mobile Number";
+			mobilemess.style.color="red";
+			mobilemess.style.bordercolor="red";
+			
+		}
+		else{
+			mobilemess.innerHTML="";
+			mobilemess.style.bordercolor="";
+
+		}
+	}
+
+	function email(){
+		if (email1.length<15 || email1="" || (isNaN(email1.value==false))) {
+			emailmess.innerHTML="Invalid email address"
+			emailmess.style.bordercolor="red";
+			emailmess.style.color="red";
+			
+		}
+		else{
+			emailmess.innerHTML=""
+			emailmess.style.bordercolor="";
+		}
+	}
+
+	function city(){
+		if (city1.length<15 || city1="" || (isNaN(city.length==false))) {
+			citymess.innerHTML="Invalid City"
+			citymess.style.bordercolor="red";
+			citymess.style.color="red";
+			
+		}
+		else{
+			citymess.innerHTML=""
+			citymess.style.bordercolor="";
+		}
+	}
+		
+	function state(){
+		if (state1.length<15 || state1="" || (isNaN(state1.length==false))) {
+			statemess.innerHTML="Invalid State"
+			statemess.style.bordercolor="red";
+			statemess.style.color="red";
+			
+		}
+		else{
+			statemess.innerHTML=""
+			statemess.style.bordercolor="";
+		}
+	}
+
+
+
+</script>
+
+</body>
+</html>
