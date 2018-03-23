@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=content-width, initial-scale=1.0">
+	<title>Javascript Assignment</title>
+	<!--Below are the required CDN's-->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<!--Navigation bar code-->
+		<nav class="navbar navbar-inverse">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">User Login Management System</a>
+			</div>
+		</nav>
+		<!--Main content of the page-->
+		<div class="panel panel-default">
+			<div class="panel-heading">Login Page</div>
+			<div class="panel-body">
+				<!--Form element wit frm1submit function declared-->
+				<form class="form-inline" id="frm1" onsubmit="frm1submit(event)" action="" method="post">
+					<div class="row">
+						<!--input text box for user ID-->
+						<div class="form-group col-md-4">
+							<label for ="userid">User ID:</label>
+							<input type="text" class="form-control" id="userid" name="userID" placeholder="Enter User ID">
+							<div id="error1"></div><!--error paragraph validation-->
+						</div>
+						<!--input text box for password-->
+						<div class="form-group col-md-4">
+							<label for ="pwd">Password:</label>
+							<input type="password" class="form-control" id="pwd" name="password" onblur="ftn1()" placeholder="Enter Password">
+							<br>
+							<small class="form-text text-muted">We will never share your password with anyone</small>
+							<div id="error2"></div><!--error paragraph validation-->
+						</div>
+						<!--Submit button of the form on client side to send info to server-side-->
+						<div class="form-group col-md-4">
+							<button type="submit" class="btn btn-default">Submit</button>
+						</div>
+					</div>
+					
+				</form>
+				
+			</div>
+			
+		</div>
+		
+	</div>
+
+<script type="text/javascript">
+	//When the submit button is clicked, the below function is executed
+	function frm1submit(event){
+		//alert("This is a test message!");
+		var user=document.getelementbyID("userid").value;//Retrives userid from i/p text to var user
+		localStorage.setitem("loggedUser", user) //stores user in browser local memory
+		if(user==admin || user.length<=7){ //validation rule if user=admin OR count is less or equal to 7
+			alert("Welcome"); 
+		}else{
+			document.getelementbyID("error1").innerHTML="User ID must be less than or equal to 7 characters";//Displays below input text using error1 id from input text
+			document.getelementbyID("error1").style.border=red;//Styles the input box color to red when validation fails
+			event.preventDefault();//unsuccessful validation prevents data submission to server side
+			return false;//after preventing data nullifys the else block of code 
+		}
+	}
+		//when onblur triggers below function is executed
+		function ftn1(){
+		var password=document.getelementbyID("pwd").value
+		if(password.length==5){ 
+			window.location.href="home.html"
+		}else{
+			document.getelementbyID("error2").innerHTML="Password must be exactly 5 characters";
+			document.getelementbyID("error2").style.border=red;
+		}
+			
+			
+		}
+	}
+
+
+
+function ftn1(){
+	var password=document.getelementbyID("pwd").value
+		if(password.length==5){
+			document.getelementbyID("error2").innerHTML="Password must be exactly 5 characters";
+			document.getelementbyID("error2").style.border=red;
+			event.preventDefault();
+			return false;
+}
+
+</script>
+
+</body>
+</html>
